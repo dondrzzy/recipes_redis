@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="col-md-6 mx-auto">
+      <label for="">Enter Recipe Category</label>
+      <input type="text" class="form-control">
+      <button class="btn btn-success mt-3" type="submit">Find</button>
+    </div>
+
+    <table class="table table-striped mt-4">
+      <thead>
+        <tr>
+          <th sope="col">#</th>
+          <th sope="col">Category</th>
+          <th sope="col">Image</th>
+          <th sope="col">Name</th>
+          <th sope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in recipes %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ r.category }}</td>
+            <td><img src="{{r.image}}" width="100" class="img img-responsive"></td>
+            <td>{{ r.name }}</td>
+            <td>
+              <a href="{{ r.id }}" class="btn btn-info"> View</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
